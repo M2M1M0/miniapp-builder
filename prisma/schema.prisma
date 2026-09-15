@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String   @id @default(cuid())
+  phone        String   @unique
+  passwordHash String
+  name         String?
+  createdAt    DateTime @default(now())
+}
+
+model MiniApp {
+  id               String    @id @default(cuid())
+  slug             String    @unique
+  template         String    
+  name             String
+  themeColor       String    @default("#111827")
+  logoUrl          String?
+  vercelProjectId  String?
+  lastDeploymentId String?
+  deployStatus     String    @default("NOT_DEPLOYED") // NOT_DEPLOYED | DEPLOYING | READY | ERROR
+  deploymentUrl    String?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+}
