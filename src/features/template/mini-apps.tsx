@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { miniAppsType } from ".";
 import Deploy from "./deploy";
 
@@ -22,7 +23,7 @@ function MiniApps({ miniApps }: { miniApps: miniAppsType[] }) {
                                         }
                                     </div>
                                 </div>
-                                {miniApp.deploymentUrl && <span className="text-sm text-blue-600">{miniApp.deploymentUrl}</span>}
+                                {miniApp.deploymentUrl && <Link href={miniApp.deploymentUrl} className="text-sm text-blue-600">{miniApp.deploymentUrl}</Link>}
 
                             </div>
                         </li>

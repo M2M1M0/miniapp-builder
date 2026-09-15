@@ -9,6 +9,8 @@ const jsonHeaders = {
 export type VercelDeployment = {
   id: string;
   url: string;
+  alias?: string[];
+  aliasAssigned?: boolean;
   readyState:
     | "QUEUED"
     | "INITIALIZING"

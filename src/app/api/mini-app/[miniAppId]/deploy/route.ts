@@ -63,7 +63,10 @@ export async function POST(
     }
 
     const finalStatus = d.readyState === "READY" ? "READY" : "ERROR";
-    const deploymentUrl = d.readyState === "READY" ? `https://${d.url}` : null;
+    const deploymentUrl =
+      d.readyState === "READY" && d.alias?.length
+        ? `https://${d.alias[0]}`
+        : null;
 
     await prisma.miniApp.update({
       where: { id: miniAppId },
