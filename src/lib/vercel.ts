@@ -90,21 +90,24 @@ export async function triggerDeployment(
   projectId: string,
   template: TemplateRepo,
 ) {
-  const res = await fetch(`${VERCEL_API}/v13/deployments`, {
-    method: "POST",
-    headers: jsonHeaders,
-    body: JSON.stringify({
-      name,
-      project: projectId,
-      target: "production",
-      gitSource: {
-        type: "github",
-        org: template.owner,
-        repo: template.repo,
-        ref: template.ref ?? "main",
-      },
-    }),
-  });
+  const res = await fetch(
+    `${VERCEL_API}/v13/deployments?skipAutoDetectionConfirmation=1`,
+    {
+      method: "POST",
+      headers: jsonHeaders,
+      body: JSON.stringify({
+        name,
+        project: projectId,
+        target: "production",
+        gitSource: {
+          type: "github",
+          org: template.owner,
+          repo: template.repo,
+          ref: template.ref ?? "main",
+        },
+      }),
+    },
+  );
 
   if (!res.ok) {
     throw new Error(`Vercel triggerDeployment failed: ${await res.text()}`);
