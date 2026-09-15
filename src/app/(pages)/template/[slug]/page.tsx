@@ -7,12 +7,10 @@ type Props = {
 
 async function page({ params }: Props) {
     const { slug } = await params;
-
     const miniApps = await prisma.miniApp.findMany({
         where: { template: slug },
         orderBy: { createdAt: "desc" },
     });
-    console.log(miniApps)
     return (
         <Template template={slug} miniApps={miniApps} />
     )

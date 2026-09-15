@@ -55,7 +55,7 @@ function Template({ template, miniApps }: { template: string, miniApps: miniApps
         <div className="relative w-full h-full flex flex-col gap-5">
 
             <p>
-                List of mini app in: <strong className="capitalize">{template?.replace("_", " ")}</strong>
+                List of mini app in: <strong className="capitalize">{template?.replace("-", " ")}</strong>
             </p>
 
             <MiniApps miniApps={miniApps} />

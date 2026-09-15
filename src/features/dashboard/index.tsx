@@ -2,9 +2,9 @@ import Image from "next/image"
 import Link from "next/link"
 
 const templates = [
-    { slug: "template_one", name: "Template One", },
-    { slug: "template_two", name: "Template Two", },
-    { slug: "template_three", name: "Template Three", }
+    { slug: "template-one", name: "Template One", },
+    { slug: "template-two", name: "Template Two", },
+    { slug: "template-three", name: "Template Three", }
 ]
 function Dashboard() {
     return (
