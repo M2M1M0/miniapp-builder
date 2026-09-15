@@ -37,7 +37,7 @@ export async function POST(
 
     await setEnvVars(project.id, {
       MINI_APP_ID: miniApp.id,
-      NEXT_PUBLIC_APP_URL: `${process.env.NEXT_PUBLIC_APP_URL}/api`,
+      NEXT_PUBLIC_APP_URL: `${process.env.NEXT_PUBLIC_APP_URL}`,
     });
 
     const deployment = await triggerDeployment(projectName, project.id, {
