@@ -41,6 +41,10 @@ export function resolveTemplate(key: string): TemplateRepo {
 }
 
 export async function createProject(name: string, template: TemplateRepo) {
+  console.log("hasVercelToken ", {
+    hasVercelToken: Boolean(process.env.VERCEL_TOKEN),
+  });
+
   const res = await fetch(`${VERCEL_API}/v10/projects`, {
     method: "POST",
     headers: jsonHeaders,
