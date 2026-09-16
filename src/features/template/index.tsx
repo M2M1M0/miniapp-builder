@@ -61,6 +61,7 @@ function Template({ template, miniApps }: { template: string, miniApps: miniApps
             <MiniApps miniApps={miniApps} />
 
             <form onSubmit={createMiniApp} className="flex flex-col gap-3 max-w-md">
+                <h1 className="font-semibold text-center">Create Mini App</h1>
                 <input
                     className="rounded border px-3 py-2"
                     placeholder="Mini App Name"
